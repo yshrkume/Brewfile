@@ -12,4 +12,5 @@ $ brew bundle
 ## Update
 ```sh
 $ brew bundle dump --force
+$ brew bundle install
 ```

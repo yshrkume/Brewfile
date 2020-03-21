@@ -913,7 +913,8 @@
             }
           }
         }
-      }
+      },
+      "thoughtbot/formulae/rcm": null
     },
     "cask": {
       "chromedriver": {
