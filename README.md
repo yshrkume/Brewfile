@@ -1,5 +1,7 @@
 # Brewfile
-
+## Requirement
+* brew
+* brew bundle
 ## Installation
 ```sh
 $ brew tap Homebrew/bundle
