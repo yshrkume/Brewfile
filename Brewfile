@@ -32,7 +32,6 @@ brew "privoxy", restart_service: true
 brew "pyenv"
 brew "ruby-build"
 brew "rbenv"
-brew "reattach-to-user-namespace"
 brew "shellcheck"
 brew "tfenv"
 brew "tflint"
