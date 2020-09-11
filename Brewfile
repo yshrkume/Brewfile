@@ -35,7 +35,6 @@ brew "p7zip"
 brew "packer"
 brew "picocom"
 brew "pipx"
-brew "poetry"
 brew "postgresql"
 brew "privoxy", restart_service: true
 brew "pyenv"
