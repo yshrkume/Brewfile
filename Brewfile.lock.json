@@ -8,7 +8,7 @@
         "revision": "694ecbd1ee04a8feb079c4d82ac4a331cb2840bb"
       },
       "homebrew/cask": {
-        "revision": "6b968dae978134b0932695ecdef91f4679d5778c"
+        "revision": "9fa40ce2a71135a973e5741edb3ca5fcca6a14a7"
       },
       "homebrew/core": {
         "revision": "c2be3e3151b557879fdf0599254cda0b55d21a27"
@@ -1598,6 +1598,12 @@
         "version": "6.51",
         "options": {
           "full_name": "istat-menus"
+        }
+      },
+      "iterm2": {
+        "version": "3.4.3",
+        "options": {
+          "full_name": "iterm2"
         }
       }
     }
