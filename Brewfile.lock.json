@@ -8,7 +8,7 @@
         "revision": "694ecbd1ee04a8feb079c4d82ac4a331cb2840bb"
       },
       "homebrew/cask": {
-        "revision": "9fa40ce2a71135a973e5741edb3ca5fcca6a14a7"
+        "revision": "3253f04aa6555013f8023ce79613a9a5bd739228"
       },
       "homebrew/core": {
         "revision": "c2be3e3151b557879fdf0599254cda0b55d21a27"
@@ -1525,6 +1525,31 @@
             }
           }
         }
+      },
+      "docker": {
+        "version": "20.10.3",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "arm64_big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/docker-20.10.3.arm64_big_sur.bottle.tar.gz",
+              "sha256": "2c273b146a2f75d0e8ea241936b237a9df4fa57d6630d2ef048a9e5a6bf17b90"
+            },
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/docker-20.10.3.big_sur.bottle.tar.gz",
+              "sha256": "3e87d3a378049183f43aec030c916107dbd5bb613d0e7f0a8b5edd9e4a39a333"
+            },
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/docker-20.10.3.catalina.bottle.tar.gz",
+              "sha256": "174df73c2f40d9d059a4e37c427dcd6558f39b7691d9e7e08ddc03b9978bc7be"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/docker-20.10.3.mojave.bottle.tar.gz",
+              "sha256": "bcc4af650906a9a697212d380564a9e0e6c3d707927aa05a5c5d001abb7fb9f6"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -1604,6 +1629,48 @@
         "version": "3.4.3",
         "options": {
           "full_name": "iterm2"
+        }
+      },
+      "authy": {
+        "version": "1.8.3",
+        "options": {
+          "full_name": "authy"
+        }
+      },
+      "deepl": {
+        "version": "1.13.2,124423",
+        "options": {
+          "full_name": "deepl"
+        }
+      },
+      "docker": {
+        "version": "3.1.0,51484",
+        "options": {
+          "full_name": "docker"
+        }
+      },
+      "dropbox": {
+        "version": "115.4.601",
+        "options": {
+          "full_name": "dropbox"
+        }
+      },
+      "gimp": {
+        "version": "2.10.22",
+        "options": {
+          "full_name": "gimp"
+        }
+      },
+      "mmhmm": {
+        "version": "1.1.1,1611102000",
+        "options": {
+          "full_name": "mmhmm"
+        }
+      },
+      "zoom": {
+        "version": "5.5.12484.0202",
+        "options": {
+          "full_name": "zoom"
         }
       }
     }
