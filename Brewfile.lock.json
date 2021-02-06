@@ -1678,6 +1678,12 @@
         "options": {
           "full_name": "ticktick"
         }
+      },
+      "notion": {
+        "version": "2.0.11",
+        "options": {
+          "full_name": "notion"
+        }
       }
     }
   },
