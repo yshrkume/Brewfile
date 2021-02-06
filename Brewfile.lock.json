@@ -1672,6 +1672,12 @@
         "options": {
           "full_name": "zoom"
         }
+      },
+      "ticktick": {
+        "version": "3.7.70,169",
+        "options": {
+          "full_name": "ticktick"
+        }
       }
     }
   },
