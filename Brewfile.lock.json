@@ -8,10 +8,10 @@
         "revision": "694ecbd1ee04a8feb079c4d82ac4a331cb2840bb"
       },
       "homebrew/cask": {
-        "revision": "cff87823fa44a1106a65c3800f1988ed71064cb9"
+        "revision": "502a6eb30b37bb1b7eaefb3d5567e46ede027a4f"
       },
       "homebrew/core": {
-        "revision": "abce7c631f49963d8a009b7509968adeee57bd53"
+        "revision": "f4b1eacad3e6c37423e85fdd7b5d0e5a0f27dc75"
       },
       "homebrew/services": {
         "revision": "40980e19024ef3afa63a3c0f4a7bccddd1ae8030"
@@ -23,7 +23,7 @@
         "revision": "a6bb452f4c03204fc49556c81e64172700a6d6d1"
       },
       "homebrew/cask-fonts": {
-        "revision": "11814fb759a167c85ce1d505b4a8d5ecc56beebf"
+        "revision": "6da6da8ebe4da6eb43f5c32855aad25ae32a05a4"
       }
     },
     "brew": {
@@ -745,7 +745,7 @@
         }
       },
       "tfenv": {
-        "version": "2.1.0",
+        "version": "2.2.0",
         "bottle": false
       },
       "tflint": {
@@ -1715,7 +1715,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "3.0.0",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "abce7c631f49963d8a009b7509968adeee57bd53",
+        "Homebrew/homebrew-core": "f4b1eacad3e6c37423e85fdd7b5d0e5a0f27dc75",
         "CLT": "",
         "Xcode": "12.4",
         "macOS": "11.2"
