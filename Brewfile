@@ -10,7 +10,7 @@ tap "thoughtbot/formulae"
 brew "apr-util"
 brew "autoconf"
 brew "automake"
-brew "sqlite"
+brew "python@3.11"
 brew "awscli"
 brew "awslogs"
 brew "bluetoothconnector"
@@ -26,7 +26,6 @@ brew "freetds"
 brew "libpq"
 brew "php"
 brew "composer"
-brew "guile"
 brew "libevent"
 brew "p11-kit"
 brew "unbound"
@@ -42,12 +41,14 @@ brew "git"
 brew "go"
 brew "gobject-introspection"
 brew "grep"
+brew "guile"
 brew "htop"
 brew "hub"
 brew "shared-mime-info"
 brew "libheif"
 brew "imagemagick"
 brew "jq"
+brew "mas"
 brew "nghttp2"
 brew "nkf"
 brew "node"
@@ -77,6 +78,7 @@ brew "zlib"
 brew "zsh"
 brew "heroku/brew/heroku"
 brew "thoughtbot/formulae/rcm"
+cask "1password"
 cask "abyssoft-teleport"
 cask "alfred"
 cask "appcleaner"
@@ -84,22 +86,46 @@ cask "authy"
 cask "bartender"
 cask "bettertouchtool"
 cask "chromedriver"
+cask "cron"
 cask "deepl"
+cask "discord"
 cask "docker"
 cask "dropbox"
 cask "ferdium"
 cask "font-ricty-diminished"
 cask "gimp"
 cask "google-cloud-sdk"
+cask "grammarly-desktop"
 cask "istat-menus"
 cask "iterm2"
+cask "jetbrains-toolbox"
 cask "keepingyouawake"
-cask "mmhmm"
 cask "notion"
 cask "pritunl"
 cask "qmk-toolbox"
+cask "synology-drive"
 cask "ticktick"
 cask "vagrant"
 cask "xquartz"
-cask "yt-music"
 cask "zoom"
+mas "com.alice.mac.GetPlainText", id: 508368068
+mas "CotEditor", id: 1024640650
+mas "Day One", id: 1055511498
+mas "Evernote", id: 406056744
+mas "GIPHY CAPTURE", id: 668208984
+mas "GoodNotes", id: 1444383602
+mas "GrandPerspective", id: 1111570163
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "LINE", id: 539883307
+mas "Magnet", id: 441258766
+mas "Mini Your Photos", id: 674564410
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Pocket", id: 568494494
+mas "PopClip", id: 445189367
+mas "Skitch", id: 425955336
+mas "StuffIt Expander", id: 405580712
+mas "WinArchiver Lite", id: 414855915
+mas "Xcode", id: 497799835
+mas "Yoink", id: 457622435
