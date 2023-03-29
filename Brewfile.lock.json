@@ -17,7 +17,7 @@
         "revision": "ef8e0262931759247cc978935124ecef61697e10"
       },
       "sanemat/font": {
-        "revision": "86120124a4e8bfd283d30876c6f5d33e81868761"
+        "revision": "b9c208d3a58c305764e8b311b45b65855629804c"
       },
       "thoughtbot/formulae": {
         "revision": "233415f7abd004b73702e4ecccf916e480b38ec7"
@@ -3632,6 +3632,10 @@
             }
           }
         }
+      },
+      "sanemat/font/ricty": {
+        "version": "4.1.1",
+        "bottle": false
       }
     },
     "cask": {
