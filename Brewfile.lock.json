@@ -3898,6 +3898,36 @@
         "options": {
           "full_name": "timemachineeditor"
         }
+      },
+      "microsoft-auto-update": {
+        "version": "4.57.23031200",
+        "options": {
+          "full_name": "microsoft-auto-update"
+        }
+      },
+      "microsoft-excel": {
+        "version": "16.71.23031200",
+        "options": {
+          "full_name": "microsoft-excel"
+        }
+      },
+      "microsoft-powerpoint": {
+        "version": "16.71.23031200",
+        "options": {
+          "full_name": "microsoft-powerpoint"
+        }
+      },
+      "microsoft-word": {
+        "version": "16.71.23031200",
+        "options": {
+          "full_name": "microsoft-word"
+        }
+      },
+      "sequel-pro": {
+        "version": "1.1.2",
+        "options": {
+          "full_name": "sequel-pro"
+        }
       }
     },
     "mas": {
@@ -3984,6 +4014,10 @@
       "Yoink": {
         "id": "457622435",
         "version": "3.6.84"
+      },
+      "GarageBand": {
+        "id": "682658836",
+        "version": "10.4.8"
       }
     }
   },
