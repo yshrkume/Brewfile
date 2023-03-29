@@ -8,10 +8,10 @@
         "revision": "dbbb757e2257fe878418c1f0656b9e4cd3ce4762"
       },
       "homebrew/cask": {
-        "revision": "422e3b453407b480c9b8dc8fbd1d2dcb473db9dd"
+        "revision": "0845a232f0698d4cc688d7f9a5ee30d536e527ab"
       },
       "homebrew/core": {
-        "revision": "8175c7faadcc88dceeae80cf4ba53e7d541a559d"
+        "revision": "ade8501bbdc7fea78a363b99e9dc4dbfc9902543"
       },
       "homebrew/services": {
         "revision": "ef8e0262931759247cc978935124ecef61697e10"
@@ -20,13 +20,13 @@
         "revision": "86120124a4e8bfd283d30876c6f5d33e81868761"
       },
       "thoughtbot/formulae": {
-        "revision": "a6bb452f4c03204fc49556c81e64172700a6d6d1"
+        "revision": "233415f7abd004b73702e4ecccf916e480b38ec7"
       },
       "homebrew/cask-fonts": {
         "revision": "cf255de56182c66d327c084ffdc81994f826c8fd"
       },
       "homebrew/cask-drivers": {
-        "revision": "19fc51a3cb7d90883c8a99a7c98f5d580cfa48ab"
+        "revision": "70fbb61f14dac4e595a67d4411b06b5f546267ce"
       },
       "ferdium/ferdium": {
         "revision": "72401c135cd056c706d329d5e67d8a279750d003"
@@ -4015,11 +4015,11 @@
       },
       "ventura": {
         "HOMEBREW_VERSION": "4.0.10",
-        "HOMEBREW_PREFIX": "/usr/local",
+        "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "api",
-        "CLT": "",
+        "CLT": "14.2.0.0.1.1668646533",
         "Xcode": "14.2",
-        "macOS": "13.0.1"
+        "macOS": "13.2.1"
       }
     }
   }
