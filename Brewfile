@@ -88,6 +88,7 @@ cask "bettertouchtool"
 cask "chatgpt"
 cask "chromedriver"
 cask "cleanmymac"
+cask "cleanshot"
 cask "cron"
 cask "deepl"
 cask "discord"
@@ -99,7 +100,6 @@ cask "gimp"
 cask "google-chrome"
 cask "google-cloud-sdk"
 cask "google-drive"
-cask "google-japanese-ime"
 cask "grammarly-desktop"
 cask "imageoptim"
 cask "istat-menus"
@@ -138,7 +138,5 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pocket", id: 568494494
 mas "PopClip", id: 445189367
-mas "Skitch", id: 425955336
 mas "StuffIt Expander", id: 405580712
-mas "Xcode", id: 497799835
 mas "Yoink", id: 457622435
