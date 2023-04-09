@@ -4137,6 +4137,12 @@
         "options": {
           "full_name": "logi-options-plus"
         }
+      },
+      "tempbox": {
+        "version": "1.1",
+        "options": {
+          "full_name": "tempbox"
+        }
       }
     },
     "mas": {
@@ -4231,6 +4237,10 @@
       "Amphetamine": {
         "id": "937984704",
         "version": "5.2.2"
+      },
+      "Pure Paste": {
+        "id": "1611378436",
+        "version": "1.7.2"
       }
     }
   },

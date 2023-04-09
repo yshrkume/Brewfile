@@ -118,12 +118,12 @@ cask "qmk-toolbox"
 cask "sequel-pro"
 cask "skype"
 cask "synology-drive"
+cask "tempbox"
 cask "ticktick"
 cask "timemachineeditor"
 cask "xquartz"
 cask "zoom"
 mas "Amphetamine", id: 937984704
-mas "com.alice.mac.GetPlainText", id: 508368068
 mas "CotEditor", id: 1024640650
 mas "Day One", id: 1055511498
 mas "GarageBand", id: 682658836
@@ -138,6 +138,7 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pocket", id: 568494494
 mas "PopClip", id: 445189367
+mas "Pure Paste", id: 1611378436
 mas "StuffIt Expander", id: 405580712
 mas "Xcode", id: 497799835
 mas "Yoink", id: 457622435
