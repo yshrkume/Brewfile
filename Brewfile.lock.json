@@ -4087,6 +4087,12 @@
         "options": {
           "full_name": "cleanshot"
         }
+      },
+      "logi-options-plus": {
+        "version": "1.36",
+        "options": {
+          "full_name": "logi-options-plus"
+        }
       }
     },
     "mas": {
