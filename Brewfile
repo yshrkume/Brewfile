@@ -125,7 +125,6 @@ mas "Amphetamine", id: 937984704
 mas "com.alice.mac.GetPlainText", id: 508368068
 mas "CotEditor", id: 1024640650
 mas "Day One", id: 1055511498
-mas "Evernote", id: 406056744
 mas "GarageBand", id: 682658836
 mas "GIPHY CAPTURE", id: 668208984
 mas "GoodNotes", id: 1444383602
