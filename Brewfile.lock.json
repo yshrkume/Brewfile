@@ -5,7 +5,7 @@
         "revision": "7713383db6de1631fb8cad1c50d70b506d81c578"
       },
       "homebrew/bundle": {
-        "revision": "266cc681311bdd8a40edd0476ceffb1b0054c772"
+        "revision": "6e315568a356bbe61eaf4a68022bd4ff62568876"
       },
       "homebrew/cask": {
         "revision": "0845a232f0698d4cc688d7f9a5ee30d536e527ab"
@@ -14,7 +14,7 @@
         "revision": "ade8501bbdc7fea78a363b99e9dc4dbfc9902543"
       },
       "homebrew/services": {
-        "revision": "600770cfb45504407a754281b84b55c08409e1e5"
+        "revision": "9f1446cdfdffca2f0cc5cb14884a5870e99cadde"
       },
       "sanemat/font": {
         "revision": "b9c208d3a58c305764e8b311b45b65855629804c"
@@ -23,13 +23,13 @@
         "revision": "233415f7abd004b73702e4ecccf916e480b38ec7"
       },
       "homebrew/cask-fonts": {
-        "revision": "58fcdda81696a186d0defd8dd0c7f9d189fabb31"
+        "revision": "4710350fbb9faef1ff9a1fb9227029eedd79ff88"
       },
       "homebrew/cask-drivers": {
         "revision": "84700b9b05bba29bbddf2f20c8f56a994088ede8"
       },
       "ferdium/ferdium": {
-        "revision": "fe02e75295b3a076c961d3cceaae6ef0b55a477a"
+        "revision": "f9cee3280a41ae5be5b69fa9bc762d5834cd5f85"
       },
       "lencx/chatgpt": {
         "revision": "b0bb6e201e97bb957a447d27c1b743049f6a8c4a",
@@ -4462,6 +4462,50 @@
             }
           }
         }
+      },
+      "aom": {
+        "version": "3.6.1",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "arm64_ventura": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/aom/blobs/sha256:966c8e8e10fb914ce2d6272e6f44fa6235010914bd6e1b40a6a77516bbf92949",
+              "sha256": "966c8e8e10fb914ce2d6272e6f44fa6235010914bd6e1b40a6a77516bbf92949"
+            },
+            "arm64_monterey": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/aom/blobs/sha256:c0a1489fc018dc1a62b3668940b84bc302448d14d231500f5181fe70f742ae9d",
+              "sha256": "c0a1489fc018dc1a62b3668940b84bc302448d14d231500f5181fe70f742ae9d"
+            },
+            "arm64_big_sur": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/aom/blobs/sha256:05e2be27ea35bb4393fa9e135997631163a0e03f7553b38bb2ef74c216898583",
+              "sha256": "05e2be27ea35bb4393fa9e135997631163a0e03f7553b38bb2ef74c216898583"
+            },
+            "ventura": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/aom/blobs/sha256:130033d7682e4cfa135ea1bf441f8fa661d55ceac06be2059667bc3506f88e78",
+              "sha256": "130033d7682e4cfa135ea1bf441f8fa661d55ceac06be2059667bc3506f88e78"
+            },
+            "monterey": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/aom/blobs/sha256:ecc7821e3e1c4aea91f74229abc28d360fda9bf9f620a048b26b85ef1d7c5523",
+              "sha256": "ecc7821e3e1c4aea91f74229abc28d360fda9bf9f620a048b26b85ef1d7c5523"
+            },
+            "big_sur": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/aom/blobs/sha256:acab19ae318c71f1c02c99fb60a2743a84396cb6cf53c51dca5f96bffdcc1971",
+              "sha256": "acab19ae318c71f1c02c99fb60a2743a84396cb6cf53c51dca5f96bffdcc1971"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/aom/blobs/sha256:a80ca6ea6a96f353ec73175886f26d73652dbdf1a50f104b81d0775a442df24b",
+              "sha256": "a80ca6ea6a96f353ec73175886f26d73652dbdf1a50f104b81d0775a442df24b"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -4556,7 +4600,7 @@
         }
       },
       "docker": {
-        "version": "4.20.0,109717",
+        "version": "4.20.1,110738",
         "options": {
           "full_name": "docker"
         }
@@ -4580,7 +4624,7 @@
         }
       },
       "zoom": {
-        "version": "5.14.7.18149",
+        "version": "5.14.10.19202",
         "options": {
           "full_name": "zoom"
         }
@@ -4628,7 +4672,7 @@
         }
       },
       "ferdium": {
-        "version": "6.2.7",
+        "version": "6.3.0",
         "options": {
           "full_name": "ferdium"
         }
@@ -4916,12 +4960,12 @@
         "macOS": "12.2.1"
       },
       "ventura": {
-        "HOMEBREW_VERSION": "4.0.20",
+        "HOMEBREW_VERSION": "4.0.21",
         "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "api",
-        "CLT": "14.3.0.0.1.1679647830",
+        "CLT": "14.3.1.0.1.1683849156",
         "Xcode": "14.3.1",
-        "macOS": "13.3.1"
+        "macOS": "13.4"
       }
     }
   }
