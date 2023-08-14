@@ -13,7 +13,6 @@ brew "little-cms2"
 brew "webp"
 brew "jpeg-xl"
 brew "aom"
-brew "apr-util"
 brew "aria2"
 brew "autoconf"
 brew "automake"
@@ -24,14 +23,17 @@ brew "bluetoothconnector"
 brew "glib"
 brew "cairo"
 brew "cmake"
-brew "openldap"
+brew "curl"
 brew "libtool"
 brew "freetds"
 brew "gd"
+brew "libzip"
 brew "php"
 brew "composer"
 brew "direnv"
 brew "duti"
+brew "unbound"
+brew "gnutls"
 brew "harfbuzz"
 brew "openjpeg"
 brew "leptonica"
@@ -152,6 +154,7 @@ mas "Pages", id: 409201541
 mas "Pocket", id: 568494494
 mas "PopClip", id: 445189367
 mas "Pure Paste", id: 1611378436
+mas "Room Planner", id: 1451474641
 mas "StuffIt Expander", id: 405580712
 mas "Xcode", id: 497799835
 mas "Yoink", id: 457622435
