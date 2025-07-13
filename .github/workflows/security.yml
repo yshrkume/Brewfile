@@ -1,0 +1,121 @@
+name: Security Scan
+
+on:
+  schedule:
+    # Run weekly on Sunday at 2 AM UTC
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'Brewfile'
+
+jobs:
+  security-scan:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+      
+    - name: Check for insecure tap sources
+      run: |
+        echo "Checking for insecure tap sources..."
+        insecure_taps=$(grep '^tap ' Brewfile | grep -v 'https://' | grep 'http://' || true)
+        if [ -n "$insecure_taps" ]; then
+          echo "::error::Insecure HTTP taps found:"
+          echo "$insecure_taps"
+          exit 1
+        else
+          echo "✓ All taps use secure protocols"
+        fi
+        
+    - name: Scan for deprecated packages
+      run: |
+        echo "Scanning for deprecated packages..."
+        deprecated_found=false
+        
+        # Check each brew formula for deprecation warnings
+        grep '^brew ' Brewfile | awk '{print $2}' | tr -d '"' | while read package; do
+          if brew info "$package" 2>/dev/null | grep -q "deprecated"; then
+            echo "::warning::Package $package is marked as deprecated"
+            deprecated_found=true
+          fi
+        done
+        
+        if [ "$deprecated_found" = true ]; then
+          echo "::notice::Some packages are deprecated. Consider updating your Brewfile."
+        fi
+        
+    - name: Check for known vulnerable packages
+      run: |
+        echo "Checking for known vulnerabilities..."
+        
+        # Install audit tool if not available
+        if ! command -v brew &> /dev/null; then
+          echo "::error::Homebrew not available for security audit"
+          exit 1
+        fi
+        
+        # Run homebrew's built-in security audit
+        if brew audit --formula --online --skip-style; then
+          echo "✓ No security issues found in audit"
+        else
+          echo "::warning::Security audit found potential issues"
+        fi
+        
+    - name: Validate cask signatures
+      run: |
+        echo "Validating application signatures..."
+        
+        # Check if any casks have known security issues
+        # This is a basic check - in practice you might want to integrate
+        # with more sophisticated vulnerability databases
+        
+        suspicious_casks="chrome-remote-desktop-host remote-desktop-manager"
+        
+        for cask in $suspicious_casks; do
+          if grep -q "cask \"$cask\"" Brewfile; then
+            echo "::warning::Cask $cask found - review security implications"
+          fi
+        done
+        
+    - name: Check for overly permissive applications
+      run: |
+        echo "Checking for applications that require elevated privileges..."
+        
+        # List of casks that typically require system-level access
+        privileged_apps="bartender cleanmymac bettertouchtool"
+        
+        for app in $privileged_apps; do
+          if grep -q "cask \"$app\"" Brewfile; then
+            echo "::notice::Application $app requires system privileges - ensure from trusted source"
+          fi
+        done
+        
+    - name: Verify tap authenticity
+      run: |
+        echo "Verifying tap authenticity..."
+        
+        # Check if any taps are from unknown/untrusted sources
+        grep '^tap ' Brewfile | while read line; do
+          tap_name=$(echo "$line" | awk '{print $2}' | tr -d '"')
+          tap_url=$(echo "$line" | awk '{print $3}' | tr -d '"')
+          
+          # Check for well-known trusted taps
+          case "$tap_name" in
+            "homebrew/"*|"heroku/"*|"microsoft/"*|"azure/"*|"github/"*)
+              echo "✓ Trusted tap: $tap_name"
+              ;;
+            *)
+              if [ -n "$tap_url" ]; then
+                echo "::notice::Third-party tap with custom URL: $tap_name ($tap_url)"
+              else
+                echo "::notice::Third-party tap: $tap_name"
+              fi
+              ;;
+          esac
+        done

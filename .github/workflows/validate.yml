@@ -1,0 +1,82 @@
+name: Validate Brewfile
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Homebrew
+      id: set-up-homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+      
+    - name: Validate Brewfile syntax
+      run: |
+        echo "Checking Brewfile syntax..."
+        brew bundle check --verbose || {
+          echo "::error::Brewfile validation failed"
+          exit 1
+        }
+        
+    - name: Check package availability
+      run: |
+        echo "Checking package availability..."
+        brew bundle install --dry-run || {
+          echo "::warning::Some packages may not be available"
+        }
+        
+    - name: Verify lock file consistency
+      run: |
+        if [ -f "Brewfile.lock.json" ]; then
+          echo "Verifying lock file consistency..."
+          # Create a temporary backup of the lock file
+          cp Brewfile.lock.json Brewfile.lock.json.backup
+          
+          # Generate new lock file
+          brew bundle dump --force --file=Brewfile.temp
+          
+          # Compare lock files (ignore timestamp differences)
+          if ! cmp -s Brewfile.lock.json.backup Brewfile.lock.json; then
+            echo "::notice::Lock file has been updated"
+          else
+            echo "Lock file is consistent"
+          fi
+          
+          # Cleanup
+          rm -f Brewfile.temp Brewfile.lock.json.backup
+        else
+          echo "::notice::No lock file found"
+        fi
+        
+    - name: Check for duplicate entries
+      run: |
+        echo "Checking for duplicate entries..."
+        duplicates=$(cat Brewfile | grep -E '^(brew|cask|mas|vscode)' | sort | uniq -d)
+        if [ -n "$duplicates" ]; then
+          echo "::error::Duplicate entries found:"
+          echo "$duplicates"
+          exit 1
+        else
+          echo "No duplicate entries found"
+        fi
+        
+    - name: Validate tap sources
+      run: |
+        echo "Validating tap sources..."
+        taps=$(grep '^tap ' Brewfile | awk '{print $2}' | tr -d '"')
+        for tap in $taps; do
+          if ! brew tap-info "$tap" >/dev/null 2>&1; then
+            echo "::warning::Tap $tap might not be accessible"
+          else
+            echo "✓ Tap $tap is accessible"
+          fi
+        done

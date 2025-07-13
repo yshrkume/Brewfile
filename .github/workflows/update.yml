@@ -1,0 +1,173 @@
+name: Update Check
+
+on:
+  schedule:
+    # Run every Monday at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  check-updates:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+      
+    - name: Update Homebrew
+      run: |
+        echo "Updating Homebrew repositories..."
+        brew update
+        
+    - name: Check for outdated packages
+      id: outdated
+      run: |
+        echo "Checking for outdated packages..."
+        
+        # Install packages to check for updates
+        brew bundle install --no-upgrade
+        
+        # Get outdated packages
+        outdated_formulas=$(brew outdated --formula --quiet || true)
+        outdated_casks=$(brew outdated --cask --quiet || true)
+        
+        # Count outdated packages
+        formula_count=$(echo "$outdated_formulas" | grep -c . || echo "0")
+        cask_count=$(echo "$outdated_casks" | grep -c . || echo "0")
+        total_count=$((formula_count + cask_count))
+        
+        echo "formula_count=$formula_count" >> $GITHUB_OUTPUT
+        echo "cask_count=$cask_count" >> $GITHUB_OUTPUT
+        echo "total_count=$total_count" >> $GITHUB_OUTPUT
+        
+        if [ $total_count -gt 0 ]; then
+          echo "Found $total_count outdated packages"
+          echo "outdated_formulas<<EOF" >> $GITHUB_OUTPUT
+          echo "$outdated_formulas" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "outdated_casks<<EOF" >> $GITHUB_OUTPUT
+          echo "$outdated_casks" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+        else
+          echo "All packages are up to date!"
+        fi
+        
+    - name: Generate update report
+      if: steps.outdated.outputs.total_count > 0
+      run: |
+        echo "Generating update report..."
+        
+        # Create update report
+        cat > update-report.md << 'EOF'
+        # Package Update Report
+        
+        ## Summary
+        - Outdated formulas: ${{ steps.outdated.outputs.formula_count }}
+        - Outdated casks: ${{ steps.outdated.outputs.cask_count }}
+        - Total outdated: ${{ steps.outdated.outputs.total_count }}
+        
+        ## Outdated Formulas
+        ```
+        ${{ steps.outdated.outputs.outdated_formulas }}
+        ```
+        
+        ## Outdated Casks
+        ```
+        ${{ steps.outdated.outputs.outdated_casks }}
+        ```
+        
+        ## To Update
+        Run the following commands to update packages:
+        
+        ```bash
+        # Update all packages
+        brew bundle install
+        
+        # Or update specific packages
+        brew upgrade [package-name]
+        ```
+        
+        ## Lock File Update
+        After updating packages, regenerate the lock file:
+        ```bash
+        brew bundle dump --force
+        ```
+        
+        ---
+        *Generated on $(date)*
+        EOF
+        
+    - name: Check for new packages in popular taps
+      run: |
+        echo "Checking for potentially useful new packages..."
+        
+        # Check for new packages in popular categories that might be useful
+        # This is informational only
+        
+        new_dev_tools=$(brew search --formula | grep -E "(git|docker|node|python|rust|go)" | head -5 || true)
+        if [ -n "$new_dev_tools" ]; then
+          echo "::notice title=New Development Tools::Some new development tools are available: $new_dev_tools"
+        fi
+        
+        new_productivity=$(brew search --cask | grep -E "(productivity|utility)" | head -3 || true)
+        if [ -n "$new_productivity" ]; then
+          echo "::notice title=New Productivity Apps::Some new productivity apps are available: $new_productivity"
+        fi
+        
+    - name: Upload update report
+      if: steps.outdated.outputs.total_count > 0
+      uses: actions/upload-artifact@v4
+      with:
+        name: update-report
+        path: update-report.md
+        retention-days: 30
+        
+    - name: Comment on latest commit (if updates available)
+      if: steps.outdated.outputs.total_count > 0 && github.event_name == 'schedule'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const reportContent = fs.readFileSync('update-report.md', 'utf8');
+          
+          github.rest.repos.createCommitComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            commit_sha: context.sha,
+            body: `## 📦 Package Updates Available\n\n${reportContent}\n\n*This is an automated weekly update check.*`
+          });
+          
+    - name: Create issue for major updates (optional)
+      if: steps.outdated.outputs.total_count > 20
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const title = `🔄 Major Package Updates Available (${process.env.TOTAL_COUNT} packages)`;
+          const body = `
+          ## Summary
+          There are **${process.env.TOTAL_COUNT}** packages that can be updated.
+          
+          This is a significant number of updates. Consider reviewing and updating your development environment.
+          
+          ## Actions Needed
+          1. Review the update report in the latest workflow run
+          2. Test updates in a safe environment first
+          3. Update packages: \`brew bundle install\`
+          4. Regenerate lock file: \`brew bundle dump --force\`
+          
+          ## Automated Check
+          This issue was created automatically by the weekly update check.
+          `;
+          
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: title,
+            body: body,
+            labels: ['maintenance', 'automated']
+          });
+        env:
+          TOTAL_COUNT: ${{ steps.outdated.outputs.total_count }}

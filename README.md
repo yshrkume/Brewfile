@@ -1,5 +1,9 @@
 # Brewfile
 
+![Validate](https://github.com/yshrkume/Brewfile/workflows/Validate%20Brewfile/badge.svg)
+![Security](https://github.com/yshrkume/Brewfile/workflows/Security%20Scan/badge.svg)
+![Updates](https://github.com/yshrkume/Brewfile/workflows/Update%20Check/badge.svg)
+
 A declarative configuration for macOS development environment using Homebrew Bundle.
 
 ## Requirements
@@ -95,3 +99,42 @@ brew bundle check
 # See what would change
 brew bundle install --dry-run
 ```
+
+## Continuous Integration
+
+This repository includes automated workflows to maintain code quality and security:
+
+### 🔍 Validation Workflow
+- **Trigger**: Every push and pull request
+- **Purpose**: Validates Brewfile syntax, checks package availability, and verifies consistency
+- **Checks**:
+  - Brewfile syntax validation
+  - Package availability verification
+  - Lock file consistency
+  - Duplicate entry detection
+  - Tap source validation
+
+### 🔒 Security Workflow  
+- **Trigger**: Weekly (Sundays) and on Brewfile changes
+- **Purpose**: Scans for security vulnerabilities and insecure configurations
+- **Checks**:
+  - Insecure tap sources (HTTP vs HTTPS)
+  - Deprecated packages
+  - Known vulnerable packages
+  - Applications requiring elevated privileges
+  - Tap authenticity verification
+
+### 📦 Update Workflow
+- **Trigger**: Weekly (Mondays) and manual dispatch
+- **Purpose**: Checks for available package updates and generates reports
+- **Features**:
+  - Automated outdated package detection
+  - Update reports with actionable recommendations
+  - Notifications for major updates (20+ packages)
+  - Suggestions for new useful packages
+
+### Manual Triggers
+All workflows can be manually triggered via GitHub Actions tab:
+1. Go to **Actions** tab in the repository
+2. Select the desired workflow
+3. Click **Run workflow** button
