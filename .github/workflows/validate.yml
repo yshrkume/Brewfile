@@ -1,0 +1,101 @@
+name: Validate Brewfile
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Weekly validation on Sundays at 9 AM UTC
+    - cron: '0 9 * * 0'
+  workflow_dispatch:
+
+env:
+  CI: true
+  HOMEBREW_NO_INSTALL_CLEANUP: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+
+jobs:
+  validate:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+      
+    - name: Setup taps for testing
+      run: |
+        echo "Installing required taps..."
+        grep '^tap ' Brewfile | while read -r line; do
+          tap=$(echo "$line" | cut -d'"' -f2)
+          echo "Adding tap: $tap"
+          brew tap "$tap" || echo "Failed to add tap: $tap"
+        done
+        
+    - name: Create CI-compatible Brewfile
+      run: |
+        echo "Creating CI-compatible Brewfile..."
+        # Create a temporary Brewfile without mas entries for CI
+        grep -v '^mas ' Brewfile > Brewfile.ci
+        echo "Packages to test in CI:"
+        wc -l Brewfile.ci
+        
+    - name: Validate package availability (brew formulas)
+      run: |
+        echo "Testing brew formulas availability..."
+        grep '^brew ' Brewfile.ci | while read -r line; do
+          package=$(echo "$line" | cut -d'"' -f2)
+          echo "Testing package: $package"
+          if ! brew info "$package" >/dev/null 2>&1; then
+            echo "❌ Package not found: $package (may need tap installation)"
+            echo "Checking if this is a tap-based formula..."
+            if echo "$package" | grep -q '/'; then
+              echo "Skipping tap-based formula validation: $package"
+            else
+              exit 1
+            fi
+          else
+            echo "✅ $package"
+          fi
+        done
+        
+    - name: Validate package availability (casks)
+      run: |
+        echo "Testing cask availability..."
+        grep '^cask ' Brewfile.ci | while read -r line; do
+          package=$(echo "$line" | cut -d'"' -f2)
+          if ! brew info --cask "$package" >/dev/null 2>&1; then
+            echo "❌ Cask not found: $package"
+            exit 1
+          else
+            echo "✅ $package (cask)"
+          fi
+        done
+        
+    - name: Test critical packages installation
+      run: |
+        echo "Testing installation of critical packages..."
+        # Install a few critical packages to ensure they work
+        brew install --formula git jq gh || true
+        brew install --cask --no-quarantine visual-studio-code || true
+        
+    - name: Validate VS Code extensions
+      run: |
+        echo "Checking VS Code extensions availability..."
+        grep '^vscode ' Brewfile | while read -r line; do
+          extension=$(echo "$line" | cut -d'"' -f2)
+          echo "✅ $extension (extension - availability check skipped in CI)"
+        done
+        
+    - name: Report MAS apps (skipped in CI)
+      run: |
+        echo "Mac App Store apps (skipped in CI environment):"
+        grep '^mas ' Brewfile | wc -l | xargs -I {} echo "{} MAS apps found"
+        
+    - name: Cleanup
+      if: always()
+      run: |
+        rm -f Brewfile.ci

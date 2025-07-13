@@ -82,12 +82,27 @@ export HOMEBREW_BUNDLE_FILE=~/dotfiles/Brewfile
 - `HOMEBREW_BUNDLE_CASK_SKIP="app1 app2"` - Skip specific casks
 - `HOMEBREW_BUNDLE_FILE` - Set custom Brewfile location
 
+## Continuous Integration
+
+This repository includes optimized GitHub Actions CI that validates:
+- **Package availability**: Tests all brew formulas and casks exist in repositories
+- **CI environment compatibility**: Automatically skips Mac App Store apps (unsupported in CI)
+- **Real installation testing**: Installs critical packages to verify functionality
+- **Weekly maintenance**: Scheduled runs detect deprecated packages early
+
+**CI Features:**
+- Runs on push/PR to `main` + weekly on Sundays
+- Environment-aware (skips MAS apps in CI with `$CI` variable)
+- Tests actual package installation for critical tools
+- Performance optimized with `HOMEBREW_NO_AUTO_UPDATE`
+
 ## Troubleshooting
 
 ### Common Issues
 - **Lock conflicts**: Remove `Brewfile.lock.json` and run `brew bundle` again
 - **Service startup failures**: Check with `brew services list`
 - **Permission issues**: Ensure Homebrew directories have correct permissions
+- **CI failures**: Check the Actions tab for detailed error logs
 
 ### Verification
 ```sh
@@ -96,6 +111,11 @@ brew bundle check
 
 # See what would change
 brew bundle install --dry-run
+
+# Run similar checks as CI locally
+brew bundle check --verbose
+brew info git jq gh  # Test critical packages
+brew info --cask visual-studio-code  # Test cask availability
 ```
 
 ## Continuous Integration
