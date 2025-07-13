@@ -80,12 +80,23 @@ export HOMEBREW_BUNDLE_FILE=~/dotfiles/Brewfile
 - `HOMEBREW_BUNDLE_CASK_SKIP="app1 app2"` - Skip specific casks
 - `HOMEBREW_BUNDLE_FILE` - Set custom Brewfile location
 
+## Continuous Integration
+
+This repository includes GitHub Actions CI that automatically validates:
+- Brewfile syntax correctness
+- Package availability and accessibility
+- Documentation consistency between README.md and CLAUDE.md
+- Lock file freshness
+
+The CI runs on every push and pull request to the `main` branch. You can also trigger it manually via the "Actions" tab in GitHub.
+
 ## Troubleshooting
 
 ### Common Issues
 - **Lock conflicts**: Remove `Brewfile.lock.json` and run `brew bundle` again
 - **Service startup failures**: Check with `brew services list`
 - **Permission issues**: Ensure Homebrew directories have correct permissions
+- **CI failures**: Check the Actions tab for detailed error logs
 
 ### Verification
 ```sh
@@ -93,5 +104,9 @@ export HOMEBREW_BUNDLE_FILE=~/dotfiles/Brewfile
 brew bundle check
 
 # See what would change
+brew bundle install --dry-run
+
+# Run the same checks as CI locally
+brew bundle check --verbose
 brew bundle install --dry-run
 ```

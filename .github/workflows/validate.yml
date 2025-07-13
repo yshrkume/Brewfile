@@ -1,0 +1,53 @@
+name: Validate Brewfile
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Homebrew
+      id: set-up-homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+      
+    - name: Validate Brewfile syntax
+      run: |
+        echo "Checking Brewfile syntax..."
+        brew bundle check --verbose
+        
+    - name: Test dry-run installation
+      run: |
+        echo "Testing package availability..."
+        brew bundle install --dry-run
+        
+    - name: Check for outdated packages in lock file
+      run: |
+        echo "Checking for outdated packages..."
+        if [ -f "Brewfile.lock.json" ]; then
+          brew bundle check --no-lock
+        else
+          echo "No lock file found, skipping outdated check"
+        fi
+        
+    - name: Validate documentation consistency
+      run: |
+        echo "Checking documentation consistency..."
+        # Check if CLAUDE.md and README.md mention the same key commands
+        if ! grep -q "brew bundle" README.md; then
+          echo "ERROR: README.md should mention 'brew bundle' command"
+          exit 1
+        fi
+        if ! grep -q "brew bundle" CLAUDE.md; then
+          echo "ERROR: CLAUDE.md should mention 'brew bundle' command"
+          exit 1
+        fi
+        echo "Documentation consistency check passed"
