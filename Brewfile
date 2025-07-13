@@ -1,6 +1,5 @@
 tap "ferdium/ferdium"
 tap "heroku/brew"
-tap "lencx/chatgpt", "https://github.com/lencx/ChatGPT.git"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
