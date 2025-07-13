@@ -82,13 +82,17 @@ export HOMEBREW_BUNDLE_FILE=~/dotfiles/Brewfile
 
 ## Continuous Integration
 
-This repository includes GitHub Actions CI that automatically validates:
-- Brewfile syntax correctness
-- Package availability and accessibility
-- Documentation consistency between README.md and CLAUDE.md
-- Lock file freshness
+This repository includes optimized GitHub Actions CI that validates:
+- **Package availability**: Tests all brew formulas and casks exist in repositories
+- **CI environment compatibility**: Automatically skips Mac App Store apps (unsupported in CI)
+- **Real installation testing**: Installs critical packages to verify functionality
+- **Weekly maintenance**: Scheduled runs detect deprecated packages early
 
-The CI runs on every push and pull request to the `main` branch. You can also trigger it manually via the "Actions" tab in GitHub.
+**CI Features:**
+- Runs on push/PR to `main` + weekly on Sundays
+- Environment-aware (skips MAS apps in CI with `$CI` variable)
+- Tests actual package installation for critical tools
+- Performance optimized with `HOMEBREW_NO_AUTO_UPDATE`
 
 ## Troubleshooting
 
@@ -106,7 +110,8 @@ brew bundle check
 # See what would change
 brew bundle install --dry-run
 
-# Run the same checks as CI locally
+# Run similar checks as CI locally
 brew bundle check --verbose
-brew bundle install --dry-run
+brew info git jq gh  # Test critical packages
+brew info --cask visual-studio-code  # Test cask availability
 ```

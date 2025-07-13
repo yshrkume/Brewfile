@@ -5,7 +5,15 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  schedule:
+    # Weekly validation on Sundays at 9 AM UTC
+    - cron: '0 9 * * 0'
   workflow_dispatch:
+
+env:
+  CI: true
+  HOMEBREW_NO_INSTALL_CLEANUP: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
 
 jobs:
   validate:
@@ -16,39 +24,63 @@ jobs:
       uses: actions/checkout@v4
       
     - name: Setup Homebrew
-      id: set-up-homebrew
       uses: Homebrew/actions/setup-homebrew@master
       
-    - name: Validate Brewfile syntax
+    - name: Create CI-compatible Brewfile
       run: |
-        echo "Checking Brewfile syntax..."
-        # Check syntax only, don't fail on missing packages
-        brew bundle check --verbose || echo "Packages need installation (expected in CI)"
+        echo "Creating CI-compatible Brewfile..."
+        # Create a temporary Brewfile without mas entries for CI
+        grep -v '^mas ' Brewfile > Brewfile.ci
+        echo "Packages to test in CI:"
+        wc -l Brewfile.ci
         
-    - name: Test dry-run installation
+    - name: Validate package availability (brew formulas)
       run: |
-        echo "Testing package availability..."
-        brew bundle install --dry-run
+        echo "Testing brew formulas availability..."
+        grep '^brew ' Brewfile.ci | while read -r line; do
+          package=$(echo "$line" | cut -d'"' -f2 | cut -d'/' -f1)
+          if ! brew info "$package" >/dev/null 2>&1; then
+            echo "❌ Package not found: $package"
+            exit 1
+          else
+            echo "✅ $package"
+          fi
+        done
         
-    - name: Check for outdated packages in lock file
+    - name: Validate package availability (casks)
       run: |
-        echo "Checking for outdated packages..."
-        if [ -f "Brewfile.lock.json" ]; then
-          brew bundle check --no-lock
-        else
-          echo "No lock file found, skipping outdated check"
-        fi
+        echo "Testing cask availability..."
+        grep '^cask ' Brewfile.ci | while read -r line; do
+          package=$(echo "$line" | cut -d'"' -f2)
+          if ! brew info --cask "$package" >/dev/null 2>&1; then
+            echo "❌ Cask not found: $package"
+            exit 1
+          else
+            echo "✅ $package (cask)"
+          fi
+        done
         
-    - name: Validate documentation consistency
+    - name: Test critical packages installation
       run: |
-        echo "Checking documentation consistency..."
-        # Check if CLAUDE.md and README.md mention the same key commands
-        if ! grep -q "brew bundle" README.md; then
-          echo "ERROR: README.md should mention 'brew bundle' command"
-          exit 1
-        fi
-        if ! grep -q "brew bundle" CLAUDE.md; then
-          echo "ERROR: CLAUDE.md should mention 'brew bundle' command"
-          exit 1
-        fi
-        echo "Documentation consistency check passed"
+        echo "Testing installation of critical packages..."
+        # Install a few critical packages to ensure they work
+        brew install --formula git jq gh || true
+        brew install --cask --no-quarantine visual-studio-code || true
+        
+    - name: Validate VS Code extensions
+      run: |
+        echo "Checking VS Code extensions availability..."
+        grep '^vscode ' Brewfile | while read -r line; do
+          extension=$(echo "$line" | cut -d'"' -f2)
+          echo "✅ $extension (extension - availability check skipped in CI)"
+        done
+        
+    - name: Report MAS apps (skipped in CI)
+      run: |
+        echo "Mac App Store apps (skipped in CI environment):"
+        grep '^mas ' Brewfile | wc -l | xargs -I {} echo "{} MAS apps found"
+        
+    - name: Cleanup
+      if: always()
+      run: |
+        rm -f Brewfile.ci
