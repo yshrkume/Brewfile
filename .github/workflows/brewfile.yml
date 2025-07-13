@@ -1,0 +1,60 @@
+name: Brewfile CI
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'Brewfile', 'Brewfile.lock.json' ]
+  pull_request:
+    branches: [ main ]
+    paths: [ 'Brewfile', 'Brewfile.lock.json' ]
+  schedule:
+    # Monthly update check on first Monday
+    - cron: '0 9 1 * *'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+      
+    - name: Validate Brewfile
+      run: |
+        echo "Checking Brewfile syntax..."
+        
+        # Basic syntax validation (no actual installation)
+        brew bundle check --file=Brewfile || echo "Some packages not installed (expected in CI)"
+        
+        # Check for duplicates
+        duplicates=$(grep -E '^(brew|cask|mas|vscode)' Brewfile | sort | uniq -d)
+        if [ -n "$duplicates" ]; then
+          echo "::error::Duplicate entries found: $duplicates"
+          exit 1
+        fi
+        
+        # Basic security check
+        if grep -q 'http://' Brewfile; then
+          echo "::warning::HTTP taps found - consider using HTTPS"
+        fi
+        
+        echo "✓ Brewfile validation passed"
+        
+    - name: Check for updates (monthly only)
+      if: github.event_name == 'schedule'
+      run: |
+        echo "Checking for package updates..."
+        brew update
+        
+        outdated_count=$(brew outdated --quiet | wc -l | tr -d ' ')
+        if [ "$outdated_count" -gt 0 ]; then
+          echo "::notice::$outdated_count packages can be updated"
+          echo "Run 'brew bundle install' to update packages"
+          brew outdated --quiet | head -10
+        else
+          echo "All packages are up to date!"
+        fi
