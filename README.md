@@ -1,5 +1,7 @@
 # Brewfile
 
+![Brewfile CI](https://github.com/yshrkume/Brewfile/workflows/Brewfile%20CI/badge.svg)
+
 A declarative configuration for macOS development environment using Homebrew Bundle.
 
 ## Requirements
@@ -95,3 +97,13 @@ brew bundle check
 # See what would change
 brew bundle install --dry-run
 ```
+
+## Continuous Integration
+
+This repository includes automated validation:
+
+- **Syntax validation**: Checks Brewfile for errors and duplicates
+- **Security check**: Warns about insecure HTTP taps  
+- **Monthly updates**: Automated check for package updates
+
+The workflow runs on pushes to main and can be triggered manually via GitHub Actions.
