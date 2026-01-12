@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-30T06:02:21.214005+00:00",
+  "generated_at": "2026-01-12T06:59:59.534493+00:00",
   "system": {
     "macos": {
       "product": "26.2",
@@ -13,7 +13,7 @@
         "revision": "55ced22ca43a0e45f24035782d86121a14c9da7e"
       },
       "heroku/brew": {
-        "revision": "1db0c32a58974c68abb52b21989d197c38748f69"
+        "revision": "e56ec0a9ac4c85c498d95847d103bcdaa15858a0"
       },
       "osx-cross/arm": {
         "revision": "d22505e9095e471f71b23d9b1ede3a3cea929d26"
@@ -28,7 +28,7 @@
         "revision": "b9c208d3a58c305764e8b311b45b65855629804c"
       },
       "thoughtbot/formulae": {
-        "revision": "233415f7abd004b73702e4ecccf916e480b38ec7"
+        "revision": "14378bc364e29d9ab105aaf5cdf4449e306ed4c5"
       }
     },
     "brew": {
@@ -368,6 +368,10 @@
         "version": "1.90.0",
         "tap": "homebrew/core"
       },
+      "shellcheck": {
+        "version": "0.11.0",
+        "tap": "homebrew/core"
+      },
       "speedtest-cli": {
         "version": "2.1.3_2",
         "tap": "homebrew/core"
@@ -507,7 +511,7 @@
         "tap": "homebrew/cask"
       },
       "codex": {
-        "version": "0.77.0",
+        "version": "0.80.0",
         "tap": "homebrew/cask"
       },
       "cursor": {
@@ -523,7 +527,7 @@
         "tap": "homebrew/cask"
       },
       "docker-desktop": {
-        "version": "4.17.0,99724",
+        "version": "4.55.0,213807",
         "tap": "homebrew/cask"
       },
       "dropbox": {
@@ -540,6 +544,10 @@
       },
       "font-hack-nerd-font": {
         "version": "3.4.0",
+        "tap": "homebrew/cask"
+      },
+      "font-hackgen": {
+        "version": "2.10.0",
         "tap": "homebrew/cask"
       },
       "gcloud-cli": {
@@ -562,16 +570,16 @@
         "version": "1.22.1.0",
         "tap": "homebrew/cask"
       },
+      "hammerspoon": {
+        "version": "1.1.0",
+        "tap": "homebrew/cask"
+      },
       "imageoptim": {
         "version": "1.8.8",
         "tap": "homebrew/cask"
       },
       "istat-menus": {
         "version": "6.70",
-        "tap": "homebrew/cask"
-      },
-      "iterm2": {
-        "version": "3.4.19",
         "tap": "homebrew/cask"
       },
       "jetbrains-toolbox": {
@@ -608,10 +616,6 @@
       },
       "notion-calendar": {
         "version": "1.112.0",
-        "tap": "homebrew/cask"
-      },
-      "obsidian": {
-        "version": "1.4.16",
         "tap": "homebrew/cask"
       },
       "pgadmin4": {
@@ -655,7 +659,7 @@
         "tap": "homebrew/cask"
       },
       "wireshark-app": {
-        "version": "4.4.3",
+        "version": "4.6.2",
         "tap": "homebrew/cask"
       },
       "xquartz": {
@@ -674,7 +678,7 @@
       },
       "CotEditor": {
         "id": "1024640650",
-        "version": "6.2.0"
+        "version": "6.2.1"
       },
       "GarageBand": {
         "id": "682658836",
@@ -690,7 +694,7 @@
       },
       "GrandPerspective": {
         "id": "1111570163",
-        "version": "3.5.3"
+        "version": "3.6.1"
       },
       "iMovie": {
         "id": "408981434",
@@ -738,7 +742,7 @@
       },
       "Pure Paste": {
         "id": "1611378436",
-        "version": "1.13.0"
+        "version": "1.13.2"
       },
       "StuffIt Expander": {
         "id": "405580712",
@@ -758,10 +762,10 @@
         "version": "1.0.10"
       },
       "anysphere.remote-containers": {
-        "version": "1.0.29"
+        "version": "1.0.30"
       },
       "anysphere.remote-ssh": {
-        "version": "1.0.36"
+        "version": "1.0.38"
       },
       "dbaeumer.vscode-eslint": {
         "version": "3.0.20"
@@ -773,7 +777,7 @@
         "version": "0.2.5"
       },
       "github.vscode-github-actions": {
-        "version": "0.28.2"
+        "version": "0.29.1"
       },
       "hashicorp.terraform": {
         "version": "2.37.6"
@@ -812,7 +816,7 @@
         "version": "0.6.1"
       },
       "openai.chatgpt": {
-        "version": "0.4.56"
+        "version": "0.4.58"
       },
       "pranaygp.vscode-css-peek": {
         "version": "4.4.3"

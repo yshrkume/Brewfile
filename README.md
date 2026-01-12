@@ -45,6 +45,9 @@ brew bundle remove <formula>
 # Update Brewfile with currently installed packages
 brew bundle dump --force
 
+# Update Brewfile.lock.json from current system state [macOS-only]
+python3 scripts/update-brewfile-lock.py
+
 # Remove packages not listed in Brewfile
 brew bundle cleanup --force
 
@@ -54,6 +57,7 @@ brew bundle install
 # Install without upgrading existing packages
 HOMEBREW_BUNDLE_NO_UPGRADE=1 brew bundle
 ```
+Note: Homebrew Bundle does not generate `Brewfile.lock.json`; use the script above.
 
 ## Advanced Usage
 
@@ -99,7 +103,7 @@ This repository includes optimized GitHub Actions CI that validates:
 ## Troubleshooting
 
 ### Common Issues
-- **Lock conflicts**: Remove `Brewfile.lock.json` and run `brew bundle` again
+- **Lock conflicts**: Remove `Brewfile.lock.json` and regenerate it with `python3 scripts/update-brewfile-lock.py`
 - **Service startup failures**: Check with `brew services list`
 - **Permission issues**: Ensure Homebrew directories have correct permissions
 - **CI failures**: Check the Actions tab for detailed error logs
