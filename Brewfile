@@ -4,6 +4,7 @@ tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
 tap "sanemat/font"
+tap "steipete/tap"
 tap "thoughtbot/formulae"
 brew "zstd"
 brew "libtiff"
@@ -113,6 +114,7 @@ brew "zsh"
 brew "heroku/brew/heroku"
 brew "qmk/qmk/qmk"
 brew "sanemat/font/ricty"
+brew "steipete/tap/gogcli"
 brew "thoughtbot/formulae/rcm"
 cask "1password"
 cask "alfred"
@@ -125,6 +127,7 @@ cask "claude"
 cask "cleanmymac"
 cask "cleanshot"
 cask "codex"
+cask "codexbar"
 cask "cursor"
 cask "deepl"
 cask "discord"
@@ -152,6 +155,7 @@ cask "mysqlworkbench"
 cask "notion"
 cask "notion-calendar"
 cask "pgadmin4"
+cask "popclip"
 cask "pritunl"
 cask "qmk-toolbox"
 cask "sequel-ace"
@@ -165,6 +169,7 @@ cask "wireshark-app"
 cask "xquartz"
 cask "zoom"
 mas "Amphetamine", id: 937984704
+mas "Barbee", id: 1548711022
 mas "CotEditor", id: 1024640650
 mas "GarageBand", id: 682658836
 mas "GIPHY CAPTURE", id: 668208984
@@ -176,11 +181,9 @@ mas "Kindle", id: 302584613
 mas "LINE", id: 539883307
 mas "Magnet", id: 441258766
 mas "MARKETSPEED", id: 946680495
-mas "NAS Navigator2", id: 450664466
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pocket", id: 568494494
-mas "PopClip", id: 445189367
 mas "Pure Paste", id: 1611378436
 mas "StuffIt Expander", id: 405580712
 mas "Xcode", id: 497799835
@@ -207,3 +210,4 @@ vscode "njpwerner.autodocstring"
 vscode "openai.chatgpt"
 vscode "pranaygp.vscode-css-peek"
 vscode "vitest.explorer"
+cargo "tauri-cli"

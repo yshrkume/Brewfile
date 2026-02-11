@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-12T06:59:59.534493+00:00",
+  "generated_at": "2026-02-11T04:56:21.233002+00:00",
   "system": {
     "macos": {
       "product": "26.2",
@@ -13,7 +13,7 @@
         "revision": "55ced22ca43a0e45f24035782d86121a14c9da7e"
       },
       "heroku/brew": {
-        "revision": "e56ec0a9ac4c85c498d95847d103bcdaa15858a0"
+        "revision": "e5db1462c7edbd00df7931948359630808b10f69"
       },
       "osx-cross/arm": {
         "revision": "d22505e9095e471f71b23d9b1ede3a3cea929d26"
@@ -27,21 +27,24 @@
       "sanemat/font": {
         "revision": "b9c208d3a58c305764e8b311b45b65855629804c"
       },
+      "steipete/tap": {
+        "revision": "dd242a67aa9f1e6e2f714ba450c2868f4721eb91"
+      },
       "thoughtbot/formulae": {
         "revision": "14378bc364e29d9ab105aaf5cdf4449e306ed4c5"
       }
     },
     "brew": {
       "zstd": {
-        "version": "1.5.7",
+        "version": "1.5.7_1",
         "tap": "homebrew/core"
       },
       "libtiff": {
-        "version": "4.7.1",
+        "version": "4.7.1_1",
         "tap": "homebrew/core"
       },
       "little-cms2": {
-        "version": "2.17",
+        "version": "2.18",
         "tap": "homebrew/core"
       },
       "webp": {
@@ -49,7 +52,7 @@
         "tap": "homebrew/core"
       },
       "jpeg-xl": {
-        "version": "0.11.1_3",
+        "version": "0.11.2",
         "tap": "homebrew/core"
       },
       "aom": {
@@ -69,15 +72,15 @@
         "tap": "homebrew/core"
       },
       "icu4c@78": {
-        "version": "78.1",
+        "version": "78.2",
         "tap": "homebrew/core"
       },
       "awscli": {
-        "version": "2.32.25",
+        "version": "2.33.19",
         "tap": "homebrew/core"
       },
       "awslogs": {
-        "version": "0.15.0_3",
+        "version": "0.15.0_4",
         "tap": "homebrew/core"
       },
       "bluetoothconnector": {
@@ -93,7 +96,7 @@
         "tap": "homebrew/core"
       },
       "pycparser": {
-        "version": "2.23_1",
+        "version": "3.0",
         "tap": "homebrew/core"
       },
       "cffi": {
@@ -101,7 +104,7 @@
         "tap": "homebrew/core"
       },
       "cmake": {
-        "version": "4.2.1",
+        "version": "4.2.3",
         "tap": "homebrew/core"
       },
       "libtool": {
@@ -109,7 +112,7 @@
         "tap": "homebrew/core"
       },
       "freetds": {
-        "version": "1.5.10",
+        "version": "1.5.11",
         "tap": "homebrew/core"
       },
       "libavif": {
@@ -121,7 +124,7 @@
         "tap": "homebrew/core"
       },
       "libpq": {
-        "version": "18.1",
+        "version": "18.1_1",
         "tap": "homebrew/core"
       },
       "libzip": {
@@ -129,11 +132,11 @@
         "tap": "homebrew/core"
       },
       "php": {
-        "version": "8.5.1_2",
+        "version": "8.5.2",
         "tap": "homebrew/core"
       },
       "composer": {
-        "version": "2.8.12",
+        "version": "2.9.5",
         "tap": "homebrew/core"
       },
       "direnv": {
@@ -141,7 +144,7 @@
         "tap": "homebrew/core"
       },
       "docutils": {
-        "version": "0.22.2",
+        "version": "0.22.4",
         "tap": "homebrew/core"
       },
       "duti": {
@@ -153,11 +156,11 @@
         "tap": "homebrew/core"
       },
       "gnutls": {
-        "version": "3.8.10",
+        "version": "3.8.12",
         "tap": "homebrew/core"
       },
       "harfbuzz": {
-        "version": "12.3.0",
+        "version": "12.3.2",
         "tap": "homebrew/core"
       },
       "openjpeg": {
@@ -177,11 +180,11 @@
         "tap": "homebrew/core"
       },
       "librist": {
-        "version": "0.2.11",
+        "version": "0.2.11_1",
         "tap": "homebrew/core"
       },
       "pango": {
-        "version": "1.57.0_1",
+        "version": "1.57.0_2",
         "tap": "homebrew/core"
       },
       "srt": {
@@ -193,7 +196,7 @@
         "tap": "homebrew/core"
       },
       "ffmpeg": {
-        "version": "8.0.1",
+        "version": "8.0.1_2",
         "tap": "homebrew/core"
       },
       "fnm": {
@@ -209,7 +212,7 @@
         "tap": "homebrew/core"
       },
       "gh": {
-        "version": "2.80.0",
+        "version": "2.86.0",
         "tap": "homebrew/core"
       },
       "ghostscript": {
@@ -217,19 +220,19 @@
         "tap": "homebrew/core"
       },
       "ghq": {
-        "version": "1.8.0",
+        "version": "1.8.1",
         "tap": "homebrew/core"
       },
       "gibo": {
-        "version": "3.0.14",
+        "version": "3.0.16",
         "tap": "homebrew/core"
       },
       "git": {
-        "version": "2.51.0",
+        "version": "2.52.0_1",
         "tap": "homebrew/core"
       },
       "go": {
-        "version": "1.25.1",
+        "version": "1.25.7_1",
         "tap": "homebrew/core"
       },
       "gobject-introspection": {
@@ -241,7 +244,7 @@
         "tap": "homebrew/core"
       },
       "guile": {
-        "version": "3.0.10",
+        "version": "3.0.11",
         "tap": "homebrew/core"
       },
       "htop": {
@@ -257,15 +260,15 @@
         "tap": "homebrew/core"
       },
       "libheif": {
-        "version": "1.20.2",
+        "version": "1.21.2",
         "tap": "homebrew/core"
       },
       "python@3.12": {
-        "version": "3.12.11_1",
+        "version": "3.12.12_2",
         "tap": "homebrew/core"
       },
       "imagemagick": {
-        "version": "7.1.2-12",
+        "version": "7.1.2-13",
         "tap": "homebrew/core"
       },
       "jq": {
@@ -273,27 +276,27 @@
         "tap": "homebrew/core"
       },
       "keyring": {
-        "version": "25.6.0",
+        "version": "25.7.0_1",
         "tap": "homebrew/core"
       },
       "llvm": {
-        "version": "21.1.2",
+        "version": "21.1.8_1",
         "tap": "homebrew/core"
       },
       "mas": {
-        "version": "2.3.0",
+        "version": "5.1.0",
         "tap": "homebrew/core"
       },
       "minimal-racket": {
-        "version": "8.17",
+        "version": "9.0",
         "tap": "homebrew/core"
       },
       "mysql": {
-        "version": "9.4.0_3",
+        "version": "9.6.0",
         "tap": "homebrew/core"
       },
       "nghttp2": {
-        "version": "1.67.1",
+        "version": "1.68.0_1",
         "tap": "homebrew/core"
       },
       "nkf": {
@@ -301,7 +304,7 @@
         "tap": "homebrew/core"
       },
       "node": {
-        "version": "24.9.0",
+        "version": "25.6.0",
         "tap": "homebrew/core"
       },
       "p7zip": {
@@ -309,7 +312,7 @@
         "tap": "homebrew/core"
       },
       "pandoc": {
-        "version": "3.8",
+        "version": "3.9",
         "tap": "homebrew/core"
       },
       "picocom": {
@@ -317,43 +320,43 @@
         "tap": "homebrew/core"
       },
       "pipx": {
-        "version": "1.7.1_1",
+        "version": "1.8.0",
         "tap": "homebrew/core"
       },
       "poetry": {
-        "version": "2.2.1_2",
+        "version": "2.3.2",
         "tap": "homebrew/core"
       },
       "privoxy": {
-        "version": "4.0.0",
+        "version": "4.1.0",
         "tap": "homebrew/core"
       },
       "protobuf": {
-        "version": "32.1",
+        "version": "33.4_1",
         "tap": "homebrew/core"
       },
       "pyenv": {
-        "version": "2.6.8",
+        "version": "2.6.22",
         "tap": "homebrew/core"
       },
       "python@3.10": {
-        "version": "3.10.18",
+        "version": "3.10.19_3",
         "tap": "homebrew/core"
       },
       "python@3.11": {
-        "version": "3.11.13",
+        "version": "3.11.14_3",
         "tap": "homebrew/core"
       },
       "python@3.9": {
-        "version": "3.9.23_1",
+        "version": "3.9.25",
         "tap": "homebrew/core"
       },
       "rakudo": {
-        "version": "2025.08",
+        "version": "2026.01",
         "tap": "homebrew/core"
       },
       "ruby-build": {
-        "version": "20250925",
+        "version": "20260121",
         "tap": "homebrew/core"
       },
       "rbenv": {
@@ -365,7 +368,7 @@
         "tap": "homebrew/core"
       },
       "rust": {
-        "version": "1.90.0",
+        "version": "1.93.0",
         "tap": "homebrew/core"
       },
       "shellcheck": {
@@ -377,11 +380,11 @@
         "tap": "homebrew/core"
       },
       "starship": {
-        "version": "1.24.1",
+        "version": "1.24.2",
         "tap": "homebrew/core"
       },
       "swi-prolog": {
-        "version": "9.2.9",
+        "version": "10.0.0",
         "tap": "homebrew/core"
       },
       "switchaudio-osx": {
@@ -389,7 +392,7 @@
         "tap": "homebrew/core"
       },
       "tcl-tk": {
-        "version": "9.0.2",
+        "version": "9.0.3",
         "tap": "homebrew/core"
       },
       "telnet": {
@@ -401,7 +404,7 @@
         "tap": "homebrew/core"
       },
       "tflint": {
-        "version": "0.59.1",
+        "version": "0.61.0",
         "tap": "homebrew/core"
       },
       "the_silver_searcher": {
@@ -413,27 +416,27 @@
         "tap": "homebrew/core"
       },
       "tmux": {
-        "version": "3.5a",
+        "version": "3.6a",
         "tap": "homebrew/core"
       },
       "tor": {
-        "version": "0.4.8.18",
+        "version": "0.4.8.22",
         "tap": "homebrew/core"
       },
       "tree": {
-        "version": "2.2.1",
+        "version": "2.3.1",
         "tap": "homebrew/core"
       },
       "unar": {
-        "version": "1.10.8_6",
+        "version": "1.10.8_7",
         "tap": "homebrew/core"
       },
       "uv": {
-        "version": "0.8.22",
+        "version": "0.10.2",
         "tap": "homebrew/core"
       },
       "virtualenv": {
-        "version": "20.34.0",
+        "version": "20.36.1",
         "tap": "homebrew/core"
       },
       "wget": {
@@ -445,7 +448,7 @@
         "tap": "homebrew/core"
       },
       "zoxide": {
-        "version": "0.9.8",
+        "version": "0.9.9",
         "tap": "homebrew/core"
       },
       "zsh": {
@@ -463,6 +466,10 @@
       "sanemat/font/ricty": {
         "version": "4.1.1",
         "tap": "sanemat/font"
+      },
+      "steipete/tap/gogcli": {
+        "version": "0.9.0",
+        "tap": "steipete/tap"
       },
       "thoughtbot/formulae/rcm": {
         "version": "1.3.3",
@@ -511,8 +518,12 @@
         "tap": "homebrew/cask"
       },
       "codex": {
-        "version": "0.80.0",
+        "version": "0.98.0",
         "tap": "homebrew/cask"
+      },
+      "codexbar": {
+        "version": "0.17.0",
+        "tap": "steipete/tap"
       },
       "cursor": {
         "version": "0.13.4,231029rso7pso8l",
@@ -527,7 +538,7 @@
         "tap": "homebrew/cask"
       },
       "docker-desktop": {
-        "version": "4.55.0,213807",
+        "version": "4.60.1,218372",
         "tap": "homebrew/cask"
       },
       "dropbox": {
@@ -555,7 +566,7 @@
         "tap": "homebrew/cask"
       },
       "gimp": {
-        "version": "3.0.4",
+        "version": "3.0.8,1",
         "tap": "homebrew/cask"
       },
       "google-chrome": {
@@ -607,7 +618,7 @@
         "tap": "homebrew/cask"
       },
       "mysqlworkbench": {
-        "version": "8.0.43",
+        "version": "8.0.46",
         "tap": "homebrew/cask"
       },
       "notion": {
@@ -619,7 +630,11 @@
         "tap": "homebrew/cask"
       },
       "pgadmin4": {
-        "version": "9.8",
+        "version": "9.12",
+        "tap": "homebrew/cask"
+      },
+      "popclip": {
+        "version": "2025.9.2",
         "tap": "homebrew/cask"
       },
       "pritunl": {
@@ -631,7 +646,7 @@
         "tap": "homebrew/cask"
       },
       "sequel-ace": {
-        "version": "5.0.9,20095",
+        "version": "5.1.0,20096",
         "tap": "homebrew/cask"
       },
       "synology-drive": {
@@ -659,7 +674,7 @@
         "tap": "homebrew/cask"
       },
       "wireshark-app": {
-        "version": "4.6.2",
+        "version": "4.6.3",
         "tap": "homebrew/cask"
       },
       "xquartz": {
@@ -676,9 +691,13 @@
         "id": "937984704",
         "version": "5.3.2"
       },
+      "Barbee": {
+        "id": "1548711022",
+        "version": "4.1.3"
+      },
       "CotEditor": {
         "id": "1024640650",
-        "version": "6.2.1"
+        "version": "6.2.2"
       },
       "GarageBand": {
         "id": "682658836",
@@ -690,7 +709,7 @@
       },
       "Goodnotes": {
         "id": "1444383602",
-        "version": "7.0.22"
+        "version": "7.0.32"
       },
       "GrandPerspective": {
         "id": "1111570163",
@@ -698,15 +717,15 @@
       },
       "iMovie": {
         "id": "408981434",
-        "version": "10.4.3"
+        "version": "10.4.4"
       },
       "Keynote": {
         "id": "409183694",
-        "version": "14.4"
+        "version": "14.5"
       },
       "Kindle": {
         "id": "302584613",
-        "version": "7.48"
+        "version": "7.51"
       },
       "LINE": {
         "id": "539883307",
@@ -718,27 +737,19 @@
       },
       "MARKETSPEED": {
         "id": "946680495",
-        "version": "4.2.1"
-      },
-      "NAS Navigator2": {
-        "id": "450664466",
-        "version": "3.11"
+        "version": "4.2.2"
       },
       "Numbers": {
         "id": "409203825",
-        "version": "14.4"
+        "version": "14.5"
       },
       "Pages": {
         "id": "409201541",
-        "version": "14.4"
+        "version": "14.5"
       },
       "Pocket": {
         "id": "568494494",
         "version": "1.8.7"
-      },
-      "PopClip": {
-        "id": "445189367",
-        "version": "2023.9"
       },
       "Pure Paste": {
         "id": "1611378436",
@@ -754,7 +765,7 @@
       },
       "Yoink": {
         "id": "457622435",
-        "version": "3.6.108"
+        "version": "3.6.109"
       }
     },
     "vscode": {
@@ -762,10 +773,10 @@
         "version": "1.0.10"
       },
       "anysphere.remote-containers": {
-        "version": "1.0.30"
+        "version": "1.0.32"
       },
       "anysphere.remote-ssh": {
-        "version": "1.0.38"
+        "version": "1.0.39"
       },
       "dbaeumer.vscode-eslint": {
         "version": "3.0.20"
@@ -780,7 +791,7 @@
         "version": "0.29.1"
       },
       "hashicorp.terraform": {
-        "version": "2.37.6"
+        "version": "2.37.7"
       },
       "humao.rest-client": {
         "version": "0.26.0"
@@ -816,13 +827,13 @@
         "version": "0.6.1"
       },
       "openai.chatgpt": {
-        "version": "0.4.58"
+        "version": "0.4.71"
       },
       "pranaygp.vscode-css-peek": {
         "version": "4.4.3"
       },
       "vitest.explorer": {
-        "version": "1.36.0"
+        "version": "1.44.0"
       }
     }
   }
